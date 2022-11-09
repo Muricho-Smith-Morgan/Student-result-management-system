@@ -1,0 +1,52 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container-fluid" style="background-color:white">
+        <div class="row text-center d-block">
+            <h2 class="text-primary bold pb-25"><a href="{% url 'index' %}">Student Result Management System</a></h2>
+        </div>
+        <div class="container" id="marksheet">
+            <h2 class="text-center text-primary">Mark Sheet</h2>
+            
+            <table class="table table-hover">
+                <thead>
+                    <tr> 
+                        <th scope="col">ID</th>
+                        <th scope="col">NAME</th>
+                        <th scope="col">CLASS</th>
+                        <th scope="col">Subject</th>
+                        <th scope="col">Mark</th>
+                        <th scope="col">PRINT</th>
+
+                    </tr>
+                </thead>
+            </thead>
+			{% for x in mymembers %}
+				<tr>
+					<td>{{forloop.counter}}</td>
+                   <td>{{ x.name}}</td>
+				   <td>{{ x.year}}</td>
+				   <td>{{ x.subject}}</td>
+				   <td>{{ x.mark}}</td>  
+                   <td><a href="{% url 'print' x.id %}" class="btn btn-success btn-sm">Print</a></td>
+                  
+				</tr>
+		    {%endfor%}
+            </table>
+        </div>
+        
+        <div class="shadow-lg p-3">
+            <span class="link  text-center "><a href="{% url 'index' %}">Back To Home</a></span>
+        </div>
+    </div>   
+    
+</body>
+</html>

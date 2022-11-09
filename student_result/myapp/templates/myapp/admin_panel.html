@@ -1,0 +1,27 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
+	<link rel="stylesheet" href="{% static 'professor.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <nav style="background-color:rgb(101, 126, 180);"> 
+		<div class="section-title">
+			<center><p class="sub-title">Student Result Management System</p></center>
+		 </div>
+		<div class="nav-links" id="navLinks">
+			<ul>
+				<li><a href="{% url 'index' %}">HOME</a></li>
+				<li><a href="{% url 'add_student' %}">Add Result</a></li>
+				<li><a href="{% url 'declare' %}">Results</a></li>
+				<li><a href="{% url 'professor' %}">LogOut</a></li>
+			</ul>
+		</div>
+	</nav>
+</body>
+</html>
